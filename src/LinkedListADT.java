@@ -1,12 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
-/**
- *
- * @author Asus
- */
 public class LinkedListADT <T> {
 private Node <T> Head;
 private Node <T> Current;
@@ -60,6 +52,20 @@ private Node <T> Current;
          
           
       }}
+      
+      
+      public void addcontact(T t){
+        Node <T> p=new Node<T>(t);
+              if (Head==null){
+                  Head=Current=p;  
+              }
+              
+              if (((Contact)t).compareTo((Contact)Head.data)<0)
+          p.next=Head;
+              Head=p;
+        return;
+      
+      }
           
           public void Insert(T t){
               Node <T> p=new Node<T>(t);
@@ -75,6 +81,8 @@ private Node <T> Current;
               }
              
           }
+          
+          
           
           public boolean Search (T x){
               Node <T> temp =Head;
