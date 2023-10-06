@@ -69,7 +69,18 @@ class Contact implements Comparable<Contact>{
     public String getNotes() {
         return notes;
     }
-
+    public void display(){
+       System.out.println("Name Of Contact: " + contactName);
+       System.out.println("Phone Number: " + phoneNumber);
+       System.out.println("Email Address: " + emailAddress);
+       System.out.println("Address: " + address);
+       System.out.println("Birthday: " + birthday);
+       System.out.println("Notes: " + notes);
+       
+ 
+        
+    }
+    
     
 
     
