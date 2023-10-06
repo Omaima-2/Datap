@@ -56,7 +56,8 @@ public LinkedListADT() {
   public void addcontact(T t){
     Node <T> p=new Node<T>(t);
           if (Head==null){
-              Head=Current=p;  
+              Head=Current=p; 
+              return;
           }
           
           if (((Contact)t).compareTo((Contact)Head.data)<0)
