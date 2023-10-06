@@ -1,104 +1,97 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+public class LinkedListADT {
+private Node Head;
+private Node Current;
 
-/**
- *
- * @author Asus
- */
-public class LinkedListADT <T> {
-private Node <T> Head;
-private Node <T> Current;
+public LinkedListADT() {
+    Head=Current=null;
+}
 
-    public LinkedListADT() {
-        Head=Current=null;
-    }
+  public boolean IsEmpty(){
     
-      public boolean IsEmpty(){
-        
-        return Head==null;
-    }
-      public boolean IsFull(){
-       return false;      
-      }
-      public boolean Last(){
-       return Current.next==null;
-      }
-      public void FindFirst(){
-          Current=Head;
-        
-      }
+    return Head==null;
+}
+  public boolean IsFull(){
+   return false;      
+  }
+  public boolean Last(){
+   return Current.next==null;
+  }
+  public void FindFirst(){
+      Current=Head;
+    
+  }
+  
+  public void FindNext(){
       
-      public void FindNext(){
-          
-          Current=Current.next;
-      }
-      public void Update(T t){
-          Current.data=t;
-          
-      }
-      public T Retrieve(){
-         return Current.data;
-      }
+      Current=Current.next;
+  }
+  public void Update(T t){
+      Current.data=t;
       
-      public void Delete(){
-          
-          if (Current==Head){
-              Head=Head.next;
-          Current=Current.next;}
+  }
+  public T Retrieve(){
+     return Current.data;
+  }
+  
+  public void Delete(){
+      
+      if (Current==Head){
+          Head=Head.next;
+      Current=Current.next;}
+      else{
+          Node <T > temp=Head;
+          while(temp.next!=Current)
+              temp=temp.next;
+          temp.next=Current.next;
+      }
+      if (Current.next!=null)
+          Current= Current.next;
           else{
-              Node <T > temp=Head;
-              while(temp.next!=Current)
-                  temp=temp.next;
-              temp.next=Current.next;
+          Current=Head;
+     
+      
+  }}
+  
+  
+  public void addcontact(T t){
+    Node <T> p=new Node<T>(t);
+          if (Head==null){
+              Head=Current=p;  
           }
-          if (Current.next!=null)
-              Current= Current.next;
-              else{
-              Current=Head;
+          
+          if (((Contact)t).compareTo((Contact)Head.data)<0)
+      p.next=Head;
+          Head=p;
+    return;
+  
+  }
+      
+      public void Insert(T t){
+          Node <T> p=new Node<T>(t);
+          if (Head==null){
+              Head=Current=p;  
+          }
+          else {
+          p.next=Current.next;
+   Current.next=p;
+   
+  Current=p;     
+        
+          }
          
-          
-      }}
-          
-          public void Insert(T t){
-              Node <T> p=new Node<T>(t);
-              if (Head==null){
-                  Head=Current=p;  
-              }
-              else {
-              p.next=Current.next;
-       Current.next=p;
-       
-      Current=p;     
-            
-              }
-             
+      }
+      
+      
+      
+      public boolean Search (T x){
+          Node <T> temp =Head;
+          while (temp!=null){
+             if (temp.data.equals(x))
+                 return true;
+             else
+                 return false;
           }
-          
-          public boolean Search (T x){
-              Node <T> temp =Head;
-              while (temp!=null){
-                 if (temp.data.equals(x))
-                     return true;
-                 else
-                     return false;
-              }
-              return false;
-                  
-              }
+          return false;
+              
           }
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
+      }
