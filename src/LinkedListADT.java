@@ -1,4 +1,4 @@
-public class LinkedListADT {
+public class LinkedListADT<T> {
 private Node Head;
 private Node Current;
 
