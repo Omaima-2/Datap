@@ -1,6 +1,6 @@
-public class LinkedListADT<T> {
-private Node Head;
-private Node Current;
+public class LinkedListADT <T> {
+private Node<T> Head;
+private Node<T> Current;
 
 public LinkedListADT() {
     Head=Current=null;
@@ -25,7 +25,7 @@ public LinkedListADT() {
       
       Current=Current.next;
   }
-  public void Update(T t){
+  public void Update( T t){
       Current.data=t;
       
   }
@@ -54,17 +54,31 @@ public LinkedListADT() {
   
   
   public void addcontact(T t){
-    Node <T> p=new Node<T>(t);
+      Node <T> p=new Node<T>(t);
           if (Head==null){
               Head=Current=p; 
-              return;
+            return;            
           }
+          else{ 
+                if(((Contact)t).compareTo((Contact)Head.data)<0){
+                   p.next=Head;
+                   Head = p;
+                   return;
+                }
+                else{
+                  Node <T> r = Head;
+                  Node <T> q = null;
+                   while(r!=null&&(((Contact)r.data).compareTo((Contact)t)<=0)){
+                    q=r;
+                    r=r.next;
+                   }
+          }
+              
           
-          if (((Contact)t).compareTo((Contact)Head.data)<0)
-      p.next=Head;
-          Head=p;
-    return;
-  
+        
+    //Head=Current=p; 
+             
+          }
   }
       
       public void Insert(T t){
@@ -87,10 +101,11 @@ public LinkedListADT() {
       public boolean Search (T x){
           Node <T> temp =Head;
           while (temp!=null){
-             if (temp.data.equals(x))
+             if (!(temp.data.equals(x)))
+                 temp=temp.next;
+                 //return false;
+            else
                  return true;
-             else
-                 return false;
           }
           return false;
               
