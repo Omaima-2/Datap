@@ -2,6 +2,8 @@
 import java.util.Scanner;
 
 public class PhoneBook {
+      private LinkedListADT contactlist; 
+        
         public static void main(String[] args) {
         System.out.println("Please choose an option:\n" +
                 "1. Add a contact\n" +
