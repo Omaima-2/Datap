@@ -1,8 +1,103 @@
 
 import java.util.Scanner;
 
-public class PhoneBook {
+public class PhoneBook extends LinkedListADT {
       private LinkedListADT contactlist; 
+Contact Contact =new Contact();
+         public Contact Searchbyname (String x){
+             
+
+            if (Contact.IsEmpty()){
+                return null;}
+            Contact.FindFirst();
+            while (!Contact.Last())
+            {
+                
+                if (Contact.Retrieve().getContactName().equals(x))
+                    return Contact.Retrieve();
+                
+                Contact.FindNext();    
+            }
+            if (Contact.Retrieve().getContactName().equals(x))
+                 return  Contact.Retrieve();
+                 
+                 
+                 return null;
+              }
+   
+    public Contact SearchthePhonenumber (String x){
+             
+
+            if (Contact.IsEmpty()){
+                return null;}
+            Contact.FindFirst();
+            while (!Contact.Last())
+            {
+                
+                if (Contact.Retrieve().getPhoneNumber().equals(x))
+                    return Contact.Retrieve();
+                
+                Contact.FindNext();    
+            }
+            if (Contact.Retrieve().getPhoneNumber().equals(x))
+                 return  Contact.Retrieve();
+                 
+                 
+                 return null;
+              }
+   //seash by Email return list
+              public static LinkedListADT<Contact> SearchbyEmail (String x){
+       LinkedListADT<Contact> res= new  LinkedListADT<Contact>();
+            if (res.IsEmpty())
+                return res;
+            res.FindFirst();
+            while (!res.Last())
+            {
+                
+                if (res.Retrieve().getEmailAddress().equals(x))
+                    res.insert(res.Retrieve());
+                
+                res.FindNext();    
+            }
+            if (res.Retrieve().getEmailAddress().equals(x))
+                 res.insert(res.Retrieve());
+            return res;
+              }
+            
+         public static LinkedListADT<Contact> SearchbyAddress (String x){
+       LinkedListADT<Contact> res= new  LinkedListADT<Contact>();
+            if (res.IsEmpty())
+                return res;
+            res.FindFirst();
+            while (!res.Last())
+            {
+                
+                if (res.Retrieve().getAddress().equals(x))
+                    res.insert(res.Retrieve());
+                
+                res.FindNext();    
+            }
+            if (res.Retrieve().getAddress().equals(x))
+                 res.insert(res.Retrieve());
+            return res;
+              }
+            
+            public LinkedListADT<Contact> SearchbyBirthday(String x){
+       LinkedListADT<Contact> res= new  LinkedListADT<Contact>();
+            if (res.IsEmpty())
+                return res;
+            res.FindFirst();
+            while (!res.Last())
+            {
+                if (res.Retrieve().getBirthday().equals(x))
+                    res.insert(res.Retrieve());
+                
+                res.FindNext();    
+            }
+            if (res.Retrieve().getBirthday().equals(x))
+                 res.insert(res.Retrieve());
+            return res;
+              }
         
         public static void main(String[] args) {
         System.out.println("Please choose an option:\n" +
