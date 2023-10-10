@@ -100,6 +100,7 @@ Contact Contact =new Contact();
               }
         
         public static void main(String[] args) {
+              do{
         System.out.println("Please choose an option:\n" +
                 "1. Add a contact\n" +
                 "2. Search for a contact\n" +
@@ -112,14 +113,15 @@ Contact Contact =new Contact();
         
         System.out.println("Enter your choice:");
         
-         Scanner input=new Scanner(System.in);
-         int selection = input.nextInt();
+         
+         selection = input.nextInt();
 
-          while (selection<8)
-        {  switch(selection){
+        
+          switch(selection){
             case 1:
                System.out.println("Enter the contact's name: ");
                String  Name = input.nextLine();
+               input.nextLine();
                System.out.println("Enter the contact's phone number: ");
                String PhoneNumber = input.nextLine();
                System.out.println("Enter the contact's email address:");
@@ -130,6 +132,12 @@ Contact Contact =new Contact();
                String Birthday = input.nextLine();
                System.out.println("Enter any notes for the contact: ");
                String Notes = input.nextLine();
+               System.out.println();
+               
+               
+               contact1=new Contact(Name,PhoneNumber,Email,Address,Birthday,Notes);
+               list.Insert(contact1);
+               //list.addContact(contact1,list);
                break;
 
             case 2:
@@ -196,18 +204,20 @@ Contact Contact =new Contact();
                
                
             case 7:
-               
+              printList(list);
                break;   
                
                
                
-            case 8:
+           /* case 8:
                
                break;  
-               
-                          }
+             */  
+                          
         
-     }
-     System.out.println("Goodbye!");
-    }
+     
+     };
+    }while(selection!=8);
+       System.out.println("Goodbye!"); }
+       
 }
