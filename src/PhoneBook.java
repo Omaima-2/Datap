@@ -100,6 +100,8 @@ Contact Contact =new Contact();
               }
         
         public static void main(String[] args) {
+                      Scanner input=new Scanner(System.in);
+
               do{
         System.out.println("Please choose an option:\n" +
                 "1. Add a contact\n" +
