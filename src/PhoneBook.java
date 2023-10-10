@@ -1,25 +1,26 @@
 
 import java.util.Scanner;
 
-public class PhoneBook extends LinkedListADT {
+public class PhoneBook  {
       private LinkedListADT contactlist; 
 Contact Contact =new Contact();
+LinkedListADT<Contact> Con = new LinkedListADT<Contact>();
          public Contact Searchbyname (String x){
              
 
-            if (Contact.IsEmpty()){
+            if (Con.IsEmpty()){
                 return null;}
-            Contact.FindFirst();
-            while (!Contact.Last())
+            Con.FindFirst();
+            while (!Con.Last())
             {
                 
-                if (Contact.Retrieve().getContactName().equals(x))
-                    return Contact.Retrieve();
+                if (Con.Retrieve().getContactName().equals(x))
+                    return Con.Retrieve();
                 
-                Contact.FindNext();    
+                Con.FindNext();    
             }
-            if (Contact.Retrieve().getContactName().equals(x))
-                 return  Contact.Retrieve();
+            if (Con.Retrieve().getContactName().equals(x))
+                 return  Con.Retrieve();
                  
                  
                  return null;
@@ -28,26 +29,27 @@ Contact Contact =new Contact();
     public Contact SearchthePhonenumber (String x){
              
 
-            if (Contact.IsEmpty()){
+            if (Con.IsEmpty()){
                 return null;}
-            Contact.FindFirst();
-            while (!Contact.Last())
+            Con.FindFirst();
+            while (!Con.Last())
             {
                 
-                if (Contact.Retrieve().getPhoneNumber().equals(x))
-                    return Contact.Retrieve();
+                if (Con.Retrieve().getPhoneNumber().equals(x))
+                    return Con.Retrieve();
                 
-                Contact.FindNext();    
+                Con.FindNext();    
             }
-            if (Contact.Retrieve().getPhoneNumber().equals(x))
-                 return  Contact.Retrieve();
+            if (Con.Retrieve().getPhoneNumber().equals(x))
+                 return  Con.Retrieve();
                  
                  
                  return null;
+       //LinkedListADT<Contact> res= new  LinkedListADT<Contact>();
               }
    //seash by Email return list
               public static LinkedListADT<Contact> SearchbyEmail (String x){
-       LinkedListADT<Contact> res= new  LinkedListADT<Contact>();
+                  LinkedListADT<Contact> res= new  LinkedListADT<Contact>();
             if (res.IsEmpty())
                 return res;
             res.FindFirst();
