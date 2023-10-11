@@ -1,18 +1,23 @@
 
 public class Event {
-       private String eventTitle;
+private String eventTitle;
     private String eventdate;
     private String eventTime;
     private String eventLocation;
     private String contactName ;
-  
+     //LinkedListADT<T> listofEvent;
+    
+    //private Contact contactinthevent;
+    //public LinkedListADT<Event> EventsinEvents= new LinkedListADT<Event>();
+    //public LinkedListADT <Contact> Contacteithevent = new  LinkedListADT<Event> ();
 
     public Event(String eventTitle, String eventdate, String eventTime, String eventLocation, String contactName) {
         this.eventTitle = eventTitle;
         this.eventdate = eventdate;
         this.eventTime = eventTime;
         this.eventLocation = eventLocation;
-        this.contactName = contactName;
+        this.contactName = contactName;'
+        this.listofEvent= listofEvent;
     }
 
     @Override
@@ -59,6 +64,32 @@ public class Event {
     public void setContactName(String contactName) {
         this.contactName = contactName;
     }
-   
+    /*
+    public Contact getContactinthevent() {
+        return contactinthevent;
+    }
+
+    public void setContactinthevent(Contact contactinthevent) {
+        this.contactinthevent = contactinthevent;
+    }
+
+    public LinkedListADT<Event> getEventsinEvents() {
+        return EventsinEvents;
+    }
+
+    public void setEventsinEvents(LinkedListADT<Event> EventsinEvents) {
+        this.EventsinEvents = EventsinEvents;
+    }
+
+    public LinkedListADT<Contact> getContacteithevent() {
+        return Contacteithevent;
+    }
+
+    public void setContacteithevent(LinkedListADT<Contact> Contacteithevent) {
+        this.Contacteithevent = Contacteithevent;
+    }
+    */
 }
+
+
 
