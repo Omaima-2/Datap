@@ -1,0 +1,274 @@
+
+import java.util.Scanner;
+
+public class PhonebookTest {
+        public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        
+        int selection;
+        LinkedListADT<Contact> listOfContact = new LinkedListADT();
+        LinkedListADT<Event> listOfEvent = new LinkedListADT();
+        Contact contact ;
+
+            do{
+        System.out.println("Please choose an option:\n" +
+                "1. Add a contact\n" +
+                "2. Search for a contact\n" +
+                "3. Delete a contact\n" +
+                "4. Schedule an event\n" +
+                "5. Print event details\n" +
+                "6. Print contacts by first name\n" +
+                "7. Print all events alphabetically\n" +
+                "8. Exit");
+        
+        System.out.println("Enter your choice:");
+        
+         
+         selection = input.nextInt();
+         
+
+        
+          switch(selection){
+            case 1:
+               System.out.println("Enter the contact's name: ");
+               String  Name = input.nextLine();
+               input.nextLine();
+               System.out.println("Enter the contact's phone number: ");
+               String PhoneNumber = input.nextLine();
+               System.out.println("Enter the contact's email address:");
+               String Email = input.nextLine();
+               System.out.println("Enter the contact's address: ");
+               String Address = input.nextLine();
+               System.out.println("Enter the contact's birthday: ");
+               String Birthday = input.nextLine();
+               System.out.println("Enter any notes for the contact: ");
+               String Notes = input.nextLine();
+               System.out.println();
+               contact = new Contact (Name,PhoneNumber,Email,Address,Birthday,Notes);
+               //listOfContact.insert(contact);
+               listOfContact.addcontact(contact);
+               
+
+               break;
+
+            case 2:
+               System.out.println("Enter search criteria:\n" +
+                            "1. Name\n" +
+                            "2. Phone Number\n" +
+                            "3. Email Address\n" +
+                            "4. Address\n" +
+                            "5. Birthday"); 
+                 System.out.println("Enter your choice:");
+                 int choice = input.nextInt();
+                 input.nextLine();
+                 String search;
+                 int index;
+                 switch(choice){
+                     case 1:
+                       System.out.println("Enter contact's name :");
+                       search = input.nextLine();
+                       
+                        
+                       break;
+
+                     case 2:
+                       System.out.println("Enter contact's phone number :");
+                       search = input.nextLine();
+                       break;
+                      case 3:
+                       System.out.println("Enter contact's address :");
+                       search = input.nextLine();
+                       break;
+                        case 4:
+                       System.out.println("Enter contact's birthday :");
+                       search = input.nextLine();
+                       break;
+                        default: 
+                            System.out.println("Invalid choice!!");
+  
+                 }
+                       
+               break;
+            
+
+            case 3:
+                listOfContact.Delete();
+               System.out.println("Delete all contacts done");
+               break;
+               
+               
+            case 4:
+               System.out.println("Enter event title: ");
+               String title = input.nextLine();
+               System.out.println("Enter contact name: ");
+               String name = input.nextLine();
+               System.out.println("Enter event date and time (MM/DD/YYYY HH:MM): ");
+               String date = input.nextLine();
+               System.out.println("Enter event location: ");
+               String location = input.nextLine();
+             
+               break;  
+         
+               
+            case 5:
+               System.out.println("Enter search criteria:\n" +
+                "1. contact name\n" +
+                "2. Event tittle");
+               while (selection<3)
+               {  switch(selection){
+               case 1:
+               System.out.println("Enter the contact name:");
+               String  contact1= input.nextLine();
+               
+               
+               break;
+
+               case 2:
+               System.out.println("Enter the event title:"); 
+               String  Title= input.nextLine();
+               
+               
+               break;
+
+                          }
+               System.out.println("1. Transfer\n2.Check balance\n3.Recharge");
+                 }
+               
+             
+               break;   
+               
+               
+            case 6:
+               System.out.println("Enter the first name: ");
+               String  Nname= input.nextLine();
+               break;   
+               
+               
+            case 7:
+                listOfContact.FindFirst();
+               while (!listOfContact.Last()){
+                        listOfContact.Retrieve().displayContact();
+                        System.out.println();
+                        listOfContact.FindNext();
+                     }
+               
+               listOfContact.Retrieve().displayContact();
+               
+               break;   
+               
+               
+               
+           /* case 8:
+               
+               break;  
+             */  
+                          
+        
+     
+     };
+    }while(selection!=8);
+       System.out.println("Goodbye!"); }
+                 //LinkedListADT<Contact> Con = new LinkedListADT();
+
+  
+     
+            public static Contact Searchbyname (LinkedListADT <Contact> list, String s){
+             
+
+            if (list.IsEmpty()){
+                return null;}
+            list.FindFirst();
+            while (!list.Last())
+            {
+                
+                if (list.Retrieve().getContactName().equals(s.substring(0, 0)))
+                    return list.Retrieve();
+                
+                list.FindNext();    
+            }
+            if (list.Retrieve().getContactName().equals(s))
+                 return  list.Retrieve();
+                 
+                 
+                 return null;
+              }
+   
+    public Contact SearchthePhonenumber (LinkedListADT <Contact> list, String s){
+             
+
+            if (list.IsEmpty()){
+                return null;}
+            list.FindFirst();
+            while (!list.Last())
+            {
+                
+                if (list.Retrieve().getPhoneNumber().equals(s))
+                    return list.Retrieve();
+                
+                list.FindNext();    
+            }
+            if (list.Retrieve().getPhoneNumber().equals(s))
+                 return  list.Retrieve();
+                 
+                 
+                 return null;
+       //LinkedListADT<Contact> res= new  LinkedListADT<Contact>();
+              }
+   //seash by Email return list
+              public static LinkedListADT<Contact> SearchbyEmail (LinkedListADT <Contact> list, String s){
+                  LinkedListADT<Contact> res= new  LinkedListADT<Contact>();
+            if (res.IsEmpty())
+                return res;
+            res.FindFirst();
+            while (!res.Last())
+            {
+                
+                if (res.Retrieve().getEmailAddress().equals(s))
+                    res.insert(res.Retrieve());
+                
+                res.FindNext();    
+            }
+            if (res.Retrieve().getEmailAddress().equals(s))
+                 res.insert(res.Retrieve());
+            return res;
+              }
+            
+         public static LinkedListADT<Contact> SearchbyAddress (LinkedListADT <Contact> list, String s){
+       LinkedListADT<Contact> res= new  LinkedListADT<Contact>();
+            if (res.IsEmpty())
+                return res;
+            res.FindFirst();
+            while (!res.Last())
+            {
+                
+                if (res.Retrieve().getAddress().equals(s))
+                    res.insert(res.Retrieve());
+                
+                res.FindNext();    
+            }
+            if (res.Retrieve().getAddress().equals(s))
+                 res.insert(res.Retrieve());
+            return res;
+              }
+            
+            public LinkedListADT<Contact> SearchbyBirthday(LinkedListADT <Contact> list, String s){
+       LinkedListADT<Contact> res= new  LinkedListADT<Contact>();
+            if (res.IsEmpty())
+                return res;
+            res.FindFirst();
+            while (!res.Last())
+            {
+                if (res.Retrieve().getBirthday().equals(s))
+                    res.insert(res.Retrieve());
+                
+                res.FindNext();    
+            }
+            if (res.Retrieve().getBirthday().equals(s))
+                 res.insert(res.Retrieve());
+            return res;
+              }
+
+
+
+
+}
